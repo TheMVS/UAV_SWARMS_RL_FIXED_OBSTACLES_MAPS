@@ -21,7 +21,7 @@ RUN apt install -y python3-pip vim
 COPY . main/
 
 # Install Python packages and add py file
-RUN pip3 install numpy==1.19.2 shapely tensorflow keras matplotlib
+RUN pip3 install numpy shapely tensorflow keras matplotlib
 CMD ["python3", "Program.py"]
 CMD ["vim", "Config.py"]
 CMD ["vim", "data.json"]

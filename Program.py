@@ -433,7 +433,9 @@ class Program:
 
             import time
             start_time = time.time()
+            cicle_count = 1
             while not done:
+                cicle_count += 1
 
                 # Get previous environment (this way all agents would act at the same time)
                 prev_visited_map = np.array(np.ceil(np.sum(visited_list, axis=0)), dtype=bool).copy()
@@ -620,9 +622,9 @@ class Program:
                         plt.savefig(Config.BASE_ROUTE + 'done_environment_' + str(done_count) + '.png')
                         plt.clf()
 
-                        with open(Config.BASE_ROUTE + 'solution_times.txt', 'a+') as f:
-                            f.write('solution time ' + str(done_count) + ': '
-                                    + time.strftime('%H:%M:%S', time.gmtime(time.time() - start_time))
+                        with open(Config.BASE_ROUTE + 'solution_cicles.txt', 'a+') as f:
+                            f.write('Cicles: ' + str(done_count)
+                                    + str(cicle_count)
                                     + ' episode: ' + str(episode_number)
                                     + ' epsilon: ' + str(epsilon)
                                     + '\n')
